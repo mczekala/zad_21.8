@@ -1,7 +1,9 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 mongoose.Promise = global.Promise;
-mongoose.connect("mongodb: //serduch:password1@ds141221.mlab.com:41221/database-1");
+mongoose.connect("mongodb://serduch:password1@ds141221.mlab.com:41221/database-1", {
+    useNewUrlParser: true
+});
 
 const userSchema = new Schema({
     name: String,
@@ -133,9 +135,6 @@ const findBennyAndDelete = function () {
         });
 }
 
-
-
-
 Promise.all([kenny.save(), mark.save(), benny.save()])
     .then(findAllUsers)
     .then(findSpecificRecord)
@@ -145,7 +144,7 @@ Promise.all([kenny.save(), mark.save(), benny.save()])
     .then(findKennyAndDelete)
     .then(findBennyAndDelete)
     .catch(console.log.bind(console))
-// findAllUsers();
-// findMarkAndDelete();
-// findBennyAndDelete();
-// findKennyAndDelete();
+findAllUsers();
+findMarkAndDelete();
+findBennyAndDelete();
+findKennyAndDelete();
