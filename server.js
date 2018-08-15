@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 mongoose.Promise = global.Promise;
-mongoose.connect("mongodb://<dbuser>:<dbpassword>@ds113452.mlab.com:13452/mydatabase");
+mongoose.connect("mongodb://serduch:password1@ds113452.mlab.com:13452/mydatabase");
 
 const userSchema = new Schema({
     name: String,
