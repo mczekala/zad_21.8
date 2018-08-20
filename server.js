@@ -72,8 +72,8 @@ const findAllUsers = function () {
 }
 const findSpecificRecord = function () {
     return User.find({
-            username: 'Kenny_the_boy'
-        },
+        username: 'Kenny_the_boy'
+    },
         function (err, res) {
             if (err) throw err;
             console.log('Record: ', res);
@@ -97,13 +97,13 @@ const updateUsername = function () {
     return User.findOneAndUpdate({
         username: 'Benny_the_boy'
     }, {
-        username: 'Benny_the_man'
-    }, {
-        new: true
-    }, function (err, user) {
-        if (err) throw err;
-        console.log('nowa nazwa uzytk.' + user.username);
-    })
+            username: 'Benny_the_man'
+        }, {
+            new: true
+        }, function (err, user) {
+            if (err) throw err;
+            console.log('nowa nazwa uzytk.' + user.username);
+        })
 }
 const findMarkAndDelete = function () {
     return User.findOne({
@@ -116,8 +116,8 @@ const findMarkAndDelete = function () {
 }
 const findKennyAndDelete = function () {
     return User.findOne({
-            username: 'Kenny_the_boy'
-        })
+        username: 'Kenny_the_boy'
+    })
         .then(function (user) {
             return user.remove(function () {
                 console.log('User deleted');
@@ -126,8 +126,8 @@ const findKennyAndDelete = function () {
 }
 const findBennyAndDelete = function () {
     return User.findOne({
-            username: 'Benny_the_man'
-        })
+        username: 'Benny_the_man'
+    })
         .then(function (user) {
             return user.remove(function () {
                 console.log('User deleted');
@@ -144,7 +144,3 @@ Promise.all([kenny.save(), mark.save(), benny.save()])
     .then(findKennyAndDelete)
     .then(findBennyAndDelete)
     .catch(console.log.bind(console))
-findAllUsers();
-findMarkAndDelete();
-findBennyAndDelete();
-findKennyAndDelete();
